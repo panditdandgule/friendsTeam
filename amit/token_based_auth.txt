@@ -1,0 +1,13 @@
+class customer
+
+def methods
+pass
+
+app.config secret_key
+app.config expire_token
+
+lib include flask jwt extended
+
+jwt = KWTManager(app)
+
+def obtain token defination
