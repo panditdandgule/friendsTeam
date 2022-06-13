@@ -1,0 +1,12 @@
+a = int(input("Enter num1..=))
+b = int(input("Enter num1..=))
+
+
+sum=0
+def addition(a,b):
+   sum = a+b
+   return sum
+
+
+addition(a,b)
+print(sum)
