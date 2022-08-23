@@ -1,0 +1,41 @@
+from django.db import models
+
+# Create your models here.
+
+
+
+
+class address(models.Model):
+    city =models.CharField(max_length=50)
+    state = models.CharField(max_length=100)
+    pincode = models.CharField(max_length=15)
+
+    def __str__(self):
+        return f'''{self.city}'''
+
+    class Meta:
+        db_table = "address"
+
+class customer(models.Model):
+    name = models.CharField(max_length=50)
+    address = models.ForeignKey(address,on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return  self.name
+
+class order(models.Model):
+    product_name = models.CharField(max_length=50)
+    prod_qty = models.IntegerField()
+    prod_price = models.FloatField()
+    customer = models.ManyToManyField(customer)
+
+    def __str__(self):
+        return self.product_name
+
+
+class vendor(models.Model):
+    product_vendor_name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.product_vendor
